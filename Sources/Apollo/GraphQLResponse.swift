@@ -76,7 +76,7 @@ public final class GraphQLResponse<Data: GraphQLSelectionSet>: Parseable{
     return errorsEntry.map(GraphQLError.init)
   }
 
-  func parseResultFast() throws -> GraphQLResult<Data>  {
+  public func parseResultFast() throws -> GraphQLResult<Data>  {
     let errors = self.parseErrorsOnlyFast()
 
     if let dataEntry = body["data"] as? JSONObject {
